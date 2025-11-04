@@ -34,7 +34,7 @@ python -c "from a2a.server.apps import A2AStarletteApplication; print('✅ A2A f
 ### Step 1.1: Start MCP Server
 ```bash
 # Start the MCP server (required for all agents)
-export GOOGLE_API_KEY=AIzaSyBGUGI7fZQT06Hl49OKcTMS5BgPEqC8fvY
+export GOOGLE_API_KEY="your_google_api_key_here"
 nohup python start_mcp_server.py > mcp_server.log 2>&1 &
 
 # Wait for startup (MCP server takes time to generate embeddings)
@@ -96,7 +96,7 @@ pkill -f "port 10" 2>/dev/null || true
 sleep 3
 
 # Start all domain specialists in background
-export GOOGLE_API_KEY=AIzaSyBGUGI7fZQT06Hl49OKcTMS5BgPEqC8fvY
+export GOOGLE_API_KEY="your_google_api_key_here"
 
 # Technical Intelligence Agent (Port 10902)
 nohup uv run python src/a2a_mcp/agents/__main__.py \
@@ -130,7 +130,7 @@ sleep 15
 ### Step 2.2: Start Oracle Master Agent
 ```bash
 # Start the Solopreneur Oracle (Port 10901) with message/send fixes
-export GOOGLE_API_KEY=AIzaSyBGUGI7fZQT06Hl49OKcTMS5BgPEqC8fvY
+export GOOGLE_API_KEY="your_google_api_key_here"
 nohup uv run python src/a2a_mcp/agents/__main__.py \
   --agent-card agent_cards/solopreneur_oracle_agent.json \
   --port 10901 > oracle_agent_fixed.log 2>&1 &
@@ -455,7 +455,7 @@ else:
 ### Step 5.1: Test Oracle → Domain Agent Communication
 ```bash
 # Run the focused A2A communication test we created
-export GOOGLE_API_KEY=AIzaSyBGUGI7fZQT06Hl49OKcTMS5BgPEqC8fvY
+export GOOGLE_API_KEY="your_google_api_key_here"
 python test_a2a_communication.py
 ```
 
@@ -781,7 +781,7 @@ asyncio.run(test_error_recovery())
 "
 
 # Restart the stopped agent
-export GOOGLE_API_KEY=AIzaSyBGUGI7fZQT06Hl49OKcTMS5BgPEqC8fvY
+export GOOGLE_API_KEY="your_google_api_key_here"
 nohup uv run python src/a2a_mcp/agents/__main__.py \
   --agent-card agent_cards/personal_optimization_agent.json \
   --port 10904 > personal_agent_restart.log 2>&1 &
@@ -796,7 +796,7 @@ echo "✅ Agent restarted"
 ### Step 7.1: Test A2A Client
 ```bash
 # Test the A2A-compliant client
-export GOOGLE_API_KEY=AIzaSyBGUGI7fZQT06Hl49OKcTMS5BgPEqC8fvY
+export GOOGLE_API_KEY="your_google_api_key_here"
 python -c "
 import asyncio
 import sys
@@ -837,7 +837,7 @@ else:
 ### Step 7.2: Test Interactive Client Demo
 ```bash
 # Run a quick demo with the client
-export GOOGLE_API_KEY=AIzaSyBGUGI7fZQT06Hl49OKcTMS5BgPEqC8fvY
+export GOOGLE_API_KEY="your_google_api_key_here"
 timeout 30 python clients/a2a_solopreneur_client.py demo || echo "Demo completed or timed out"
 ```
 
@@ -848,7 +848,7 @@ timeout 30 python clients/a2a_solopreneur_client.py demo || echo "Demo completed
 ### Step 8.1: Run Complete Test Suite
 ```bash
 # Run the comprehensive test suite
-export GOOGLE_API_KEY=AIzaSyBGUGI7fZQT06Hl49OKcTMS5BgPEqC8fvY
+export GOOGLE_API_KEY="your_google_api_key_here"
 python test_solopreneur_comprehensive.py
 ```
 
